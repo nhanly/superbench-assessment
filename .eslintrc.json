@@ -1,0 +1,104 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "!**/*",
+    "*.js",
+    "node_modules",
+    "**/env.d.ts",
+    "dist",
+    "docs",
+    "e2e",
+    ".vscode"
+  ],
+  "plugins": ["import", "unused-imports"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "groups": [
+              "external",
+              "builtin",
+              "internal",
+              ["parent", "sibling", "index"],
+              "object"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "@angular/**",
+                "group": "builtin"
+              }
+            ]
+          }
+        ],
+        "import/no-unresolved": "error",
+        "import/newline-after-import": "error",
+        "unused-imports/no-unused-vars-ts": [
+          "error",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "unused-imports/no-unused-imports": "warn",
+        "no-duplicate-imports": "warn"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        "@angular-eslint/template/elements-content": [
+          "error",
+          {
+            "allowList": ["label"]
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts"]
+      },
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}

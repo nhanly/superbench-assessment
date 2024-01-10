@@ -1,0 +1,11 @@
+<div #chatContainer>
+  <app-chat-box
+    *ngFor="let chat of state.chats()"
+    class="p-4 space-y-4 flex items-end"
+    [ngClass]="{
+      'justify-start': chat.senderId !== state.currentUser().uid,
+      'justify-end': chat.senderId === state.currentUser().uid
+    }"
+    [chat]="chat"
+  />
+</div>
