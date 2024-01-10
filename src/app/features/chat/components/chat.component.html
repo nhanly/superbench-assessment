@@ -1,0 +1,15 @@
+<div class="grid min-h-screen w-full grid-cols-[80px_1fr]">
+  <app-chat-sidebar
+    class="block border-r text-white bg-indigo-600 focus:outline-none"
+  />
+  <div class="flex flex-col">
+    <main class="flex flex-col flex-1 overflow-y-scroll max-h-screen">
+      <app-chat-header />
+      <app-chat-content
+        #chatContent
+        class="flex flex-col flex-1 overflow-y-scroll max-h-screen mt-[60px]"
+      />
+      <app-chat-form (submitChatMessage)="sendChat($event)" />
+    </main>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "superbench-test": {
+      "hosting": {
+        "superbench-assessment": [
+          "superbench-test"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "superbench-test"
+  }
+}

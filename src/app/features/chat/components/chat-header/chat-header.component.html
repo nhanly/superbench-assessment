@@ -1,0 +1,11 @@
+<div
+  class="flex h-[60px] w-full items-center border-b px-4 fixed top-0 left-20 bg-white"
+>
+  <span class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10">
+    <span
+      class="flex p-2 h-full w-full items-center justify-center rounded-full text-white bg-indigo-600"
+      ><span>{{ state.otherUser()?.displayName! | avatarName }}</span></span
+    >
+  </span>
+  <span class="ml-4 font-semibold">{{ state.otherUser()?.displayName }}</span>
+</div>
